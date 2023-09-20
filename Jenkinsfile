@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 agent {
-                    docker {image 'maven:3.9.4-adoptopenjdk-17'}
+                    docker {image 'maven:3.8.1-adoptopenjdk-17'}
                 }
                 echo 'Hello, maven!'
                 sh 'mvn clean install'
