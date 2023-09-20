@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                docker 'openjdk7'
+                docker { image 'openjdk7'}
             }
             steps {
                 sh "java -version"
