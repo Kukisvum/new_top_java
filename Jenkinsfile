@@ -1,13 +1,11 @@
 pipeline {
-    agent any
-      tools {
-        maven 'maven-3.9.4'
-      }
+    agent none
     stages {
         stage('Build') {
             steps {
+                agent {docker 'maven:3-alpine'}
                 echo 'Hello, maven!'
-                sh 'mvn clean install'
+                sh 'mvn -B -DskipTests clean package'
                 echo 'OK'
             }
         }
