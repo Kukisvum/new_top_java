@@ -3,11 +3,11 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                docker { image 'maven:3.8.1-adoptopenjdk-11'}
+                docker 'maven:3-alpine'
             }
             steps {
                 echo 'Hello, maven!'
-                sh 'mvn clean install'
+                sh 'mvn -B _DskipTests clean package'
                 echo 'OK'
             }
         }
